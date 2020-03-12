@@ -1,20 +1,155 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+<ion-content>
+  <ion-header>
+    <ion-toolbar size="small" color="primary">
+      <ion-title class="ion-text-center">Mahjongg Calc</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-grid>
+    <ion-row class="ion-align-self-center">
+      <ion-col size="3" class="ion-align-self-center">
+        <ion-list>
+          <ion-list-header>
+            <ion-label>Name</ion-label>
+          </ion-list-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+          <ion-item lines="none">
+            <ion-input placeholder="Player 1"></ion-input>
+          </ion-item>
+
+          <ion-item lines="none">
+            <ion-input placeholder="Player 2"></ion-input>
+          </ion-item>
+
+          <ion-item lines="none">
+            <ion-input placeholder="Player 3"></ion-input>
+          </ion-item>
+
+          <ion-item lines="none">
+            <ion-input placeholder="Player 4"></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+
+      <ion-col size="2">
+        <ion-list>
+          <ion-radio-group [(ngModel)]="eastWind">
+            <ion-list-header>
+              <ion-label>East Wind</ion-label>
+            </ion-list-header>
+
+            <ion-item lines="none">
+              <ion-radio value=1 type="boolean"></ion-radio>
+            </ion-item>
+
+            <ion-item lines="none">
+              <ion-radio value=2 type="boolean"></ion-radio>
+            </ion-item>
+
+            <ion-item lines="none">
+              <ion-radio value=3 type="boolean"></ion-radio>
+            </ion-item>
+
+            <ion-item lines="none">
+              <ion-radio value=4 type="boolean"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+      </ion-col>
+
+      <ion-col size="2">
+        <ion-list>
+          <ion-radio-group [(ngModel)]="roundWinner" >
+            <ion-list-header>
+              <ion-label>Round Winner</ion-label>
+            </ion-list-header>
+
+            <ion-item lines="none">
+              <ion-radio value="1" type="boolean"></ion-radio>
+            </ion-item>
+
+            <ion-item lines="none">
+              <ion-radio value="2" type="boolean"></ion-radio>
+            </ion-item>
+
+            <ion-item lines="none">
+              <ion-radio value="3" type="boolean"></ion-radio>
+            </ion-item>
+
+            <ion-item lines="none">
+              <ion-radio value="4" type="boolean"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+      </ion-col>
+
+      <ion-col size="3" class="ion-align-self-stretch">
+        <ion-list>
+          <ion-list-header>
+            <ion-label>Round Points</ion-label>
+          </ion-list-header>
+
+          <ion-item>
+            <ion-input type="number" [(ngModel)]="points_p1"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="number" [(ngModel)]="points_p2"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="number" [(ngModel)]="points_p3"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="number" [(ngModel)]="points_p4"></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+
+      <ion-col size="2" class="ion-align-self-stretch">
+        <ion-list>
+          <ion-list-header>
+            <ion-label>Total Points</ion-label>
+          </ion-list-header>
+
+          <ion-item lines="none">
+            <ion-input color="primary" disabled="true" type="text" [(ngModel)]="score_p1"></ion-input>
+          </ion-item>
+
+          <ion-item lines="none">
+            <ion-input color="primary" disabled="true" type="text" [(ngModel)]="score_p2"></ion-input>
+          </ion-item>
+
+          <ion-item lines="none">
+            <ion-input color="primary" disabled="true" type="text" [(ngModel)]="score_p3"></ion-input>
+          </ion-item>
+
+          <ion-item lines="none">
+            <ion-input color="primary" disabled="true" type="text" [(ngModel)]="score_p4"></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="justify-content-center">
+      <ion-col>
+          <ion-chip>
+            <ion-input disabled="true" [(ngModel)]="roundStr"></ion-input>
+          </ion-chip>
+      </ion-col>
+      <ion-col>
+        <ion-button fill="outline" (click)="newRound()" shape="round">New Round</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-fab vertical="top" horizontal="start" class="edge" slot="fixed">
+    <ion-fab-button (click)="prevRound()">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab vertical="top" horizontal="end" class="edge" slot="fixed">
+    <ion-fab-button (click)="nextRound()">
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
