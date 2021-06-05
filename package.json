@@ -1,15 +1,17 @@
 {
   "name": "mahjongg-calc",
-  "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "version": "0.0.2",
+  "author": "Moritz Obermeier",
+  "homepage": "https://github.com/moobsen/mahjongg-calc",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build-electron": "ng build --base-href . && cp src/electron/* www/",
+    "electron": "npm run build-electron && ./node_modules/.bin/electron www/"
   },
   "private": true,
   "dependencies": {
@@ -41,6 +43,7 @@
     "@types/jasmine": "~3.6.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
+    "electron": "^13.1.1",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~5.0.0",
@@ -53,5 +56,5 @@
     "tslint": "~6.1.0",
     "typescript": "~4.2.4"
   },
-  "description": "An Ionic project"
+  "description": "A Mahjong Score Calculator"
 }
