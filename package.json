@@ -10,8 +10,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build-electron": "ng build --base-href . && cp src/electron/* www/",
-    "electron": "npm run build-electron && ./node_modules/.bin/electron www/"
+    "build-electron": "ng build --configuration production --base-href . && cp src/electron/* www/",
+    "electron": "npm run build-electron && ./node_modules/.bin/electron www/",
+    "package-electron": "npm run build-electron && electron-packager www/ mahjong --out package-electron/"
   },
   "private": true,
   "dependencies": {
@@ -44,6 +45,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
     "electron": "^13.1.1",
+    "electron-packager": "^15.2.0",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~5.0.0",
